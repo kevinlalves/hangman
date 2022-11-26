@@ -88,10 +88,14 @@ export default function App() {
   };
 
   const checkGuess = guess => {
+    if (gameState !== state.ongoing) {
+      return;
+    }
     if (guess === chosenWord) {
       setSecretWordColor("green");
     } else {
       setSecretWordColor("red");
+      setMistakeNum(maxMistakesAllowed);
     }
     setGuess("");
     setSecretWord(chosenWord);
