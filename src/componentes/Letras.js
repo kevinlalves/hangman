@@ -19,6 +19,7 @@ export default function Letters(props) {
           key={letter}
           enabled={clickEnabled(letter)}
           onClick={clickEnabled(letter) ? () => onClick(letter) : undefined}
+          data-test="letter"
         >
           {letter.toUpperCase()}
         </LetterButton>

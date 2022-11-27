@@ -17,6 +17,7 @@ export default function Game(props) {
   const state = props.state;
   const onClick = props.onClick;
   const secretWordColor = props.secretWordColor;
+  const chosenWord = props.chosenWord;
 
   const secretWord = () => {
     if (typeof (props.secretWord) === "object") {
@@ -28,13 +29,12 @@ export default function Game(props) {
 
   return (
     <GameContent secretWordColor={secretWordColor}>
-      <img src={forcaPicture[`forca${mistakeNum}`]} alt="imagem de um boneco na forca" />
+      <img data-test="game-image" src={forcaPicture[`forca${mistakeNum}`]} alt="imagem de um boneco na forca" />
       <RightPanel>
-        <Button
-          onClick={onClick} >
+        <Button data-test="choose-word" onClick={onClick} >
           Escolher Palavra
         </Button>
-        {gameState !== state.uninitialized && <p>{secretWord()}</p>}
+        {gameState !== state.uninitialized && <p data-test="word" data-answer={chosenWord} >{secretWord()}</p>}
       </RightPanel>
     </GameContent>
   );

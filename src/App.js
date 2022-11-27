@@ -115,6 +115,7 @@ export default function App() {
       <Game
         onClick={startGame}
         secretWord={secretWord}
+        chosenWord={chosenWord}
         gameState={gameState}
         state={state}
         mistakeNum={mistakeNum}

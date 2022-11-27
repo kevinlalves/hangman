@@ -12,8 +12,18 @@ export default function Guess(props) {
   return (
     <GuessContent>
       <p>Já sei a palavras!</p>
-      <Input value={guess} onChange={e => onChange(e.target.value)} onKeyDown={e => onKeyDown(e.key)} />
-      <GuessButton onClick={onClick} enabled={gameState === state.ongoing} >Chutar</GuessButton>
+      <Input
+        disabled={gameState !== state.ongoing}
+        data-test="guess-input"
+        value={guess}
+        onChange={e => onChange(e.target.value)}
+        onKeyDown={e => onKeyDown(e.key)} />
+      <GuessButton
+        data-test="guess-button"
+        onClick={onClick}
+        enabled={gameState === state.ongoing} >
+        Chutar
+      </GuessButton>
     </GuessContent>
   );
 }
