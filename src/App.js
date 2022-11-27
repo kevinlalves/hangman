@@ -69,14 +69,14 @@ export default function App() {
   //////////////////////////////////////////////////////////////////////////////////////////////
 
   const startGame = () => {
-    if (gameState != state.uninitialized) {
+    if (gameState !== state.uninitialized) {
       resetSettings();
     }
     chooseWord();
     setGameState(state.ongoing);
   };
 
-  const guessWord = letter => {
+  const guessLetter = letter => {
     const matchPosition = [];
     for (let i = 0; i < chosenWord.length; i++) {
       if (letter === chosenWord[i]) {
@@ -117,7 +117,7 @@ export default function App() {
         state={state}
         mistakeNum={mistakeNum}
         secretWordColor={secretWordColor} />
-      <Letters enabled={enabled} state={state} gameState={gameState} onClick={guessWord} />
+      <Letters enabled={enabled} state={state} gameState={gameState} onClick={guessLetter} />
       <Guess
         guess={guess}
         gameState={gameState}
