@@ -1,4 +1,4 @@
-import "./App.css";
+import GlobalStyle from "./style/GlobalSyle";
 import words from "./palavras";
 import alphabet from "./alfabeto";
 import Game from "./componentes/Jogo";
@@ -34,16 +34,17 @@ export default function App() {
     setSecretWord(underlineWord);
   };
 
-  const updateGameState = (matchPosition, letter) => {
+  const updateGameState = matchPosition => {
     if (matchPosition.length) {
       const newRightGuessesCount = rightGuessesCount + matchPosition.length;
       if (newRightGuessesCount === chosenWord.length) {
         checkGuess(chosenWord);
+        return ;
       }
       setRightGuessesCount(newRightGuessesCount);
       const newSecretWord = [...secretWord];
       for (const pos of matchPosition) {
-        newSecretWord[pos] = letter;
+        newSecretWord[pos] = chosenWord[pos];
       }
       setSecretWord(newSecretWord);
     } else {
@@ -86,7 +87,7 @@ export default function App() {
         matchPosition.push(i);
       }
     }
-    updateGameState(matchPosition, letter);
+    updateGameState(matchPosition);
     disable(letter);
   };
 
@@ -113,6 +114,7 @@ export default function App() {
 
   return (
     <AppContent>
+      <GlobalStyle />
       <Game
         onClick={startGame}
         secretWord={secretWord}

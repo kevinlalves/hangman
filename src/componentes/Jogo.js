@@ -1,4 +1,3 @@
-import "../App.css";
 import forca0 from "../assets/forca0.png";
 import forca1 from "../assets/forca1.png";
 import forca2 from "../assets/forca2.png";
