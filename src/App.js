@@ -40,6 +40,7 @@ export default function App() {
       if (newRightGuessesCount === chosenWord.length) {
         checkGuess(chosenWord);
       }
+      setRightGuessesCount(newRightGuessesCount);
       const newSecretWord = [...secretWord];
       for (const pos of matchPosition) {
         newSecretWord[pos] = letter;
@@ -78,8 +79,9 @@ export default function App() {
 
   const guessLetter = letter => {
     const matchPosition = [];
-    for (let i = 0; i < chosenWord.length; i++) {
-      if (letter === chosenWord[i]) {
+    const normalizedWord = chosenWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    for (let i = 0; i < normalizedWord.length; i++) {
+      if (letter === normalizedWord[i]) {
         matchPosition.push(i);
       }
     }
