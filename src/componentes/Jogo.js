@@ -12,15 +12,10 @@ const forcaPicture = { forca0, forca1, forca2, forca3, forca4, forca5, forca6 };
 
 
 export default function Game(props) {
-  const mistakeNum = props.mistakeNum;
-  const gameState = props.gameState;
-  const state = props.state;
-  const onClick = props.onClick;
-  const secretWordColor = props.secretWordColor;
-  const chosenWord = props.chosenWord;
+  const { mistakeNum, gameState, state, onClick, secretWordColor, chosenWord } = props;
 
   const secretWord = () => {
-    try{
+    try {
       return props.secretWord.join(" ");
     } catch {
       return props.secretWord;
@@ -49,7 +44,8 @@ const Button = styled.button`
   border-radius: 8px;
   margin-top: 30px;
   cursor: pointer;
-`
+`;
+
 const RightPanel = styled.div`
   display: flex;
   flex-direction: column;
@@ -58,7 +54,7 @@ const RightPanel = styled.div`
   width: calc(100% - 400px);
   height: 100%;
   justify-content: space-between;
-`
+`;
 
 const GameContent = styled.div`
   display: flex;
@@ -77,4 +73,4 @@ const GameContent = styled.div`
     width: 400px;
     height: 100%;
   }
-`
+`;

@@ -109,7 +109,7 @@ export default function App() {
     if (key === "Enter") {
       checkGuess(guess);
     }
-  }
+  };
 
   return (
     <AppContent>
@@ -141,7 +141,7 @@ const AppContent = styled.div`
   height: 839px;
   margin-left: auto;
   margin-right: auto;
-`
+`;
 
 function populateEnabled() {
   const enabled = {};

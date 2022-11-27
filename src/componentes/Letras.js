@@ -3,10 +3,7 @@ import alphabet from "../alfabeto";
 import Button from "../style/Button";
 
 export default function Letters(props) {
-  const enabled = props.enabled;
-  const gameState = props.gameState;
-  const state = props.state;
-  const onClick = props.onClick;
+  const { enabled, gameState, state, onClick } = props;
 
   const clickEnabled = letter => {
     return enabled[letter] && (gameState === state.ongoing);

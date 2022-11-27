@@ -2,12 +2,7 @@ import styled from "styled-components";
 import Button from "../style/Button";
 
 export default function Guess(props) {
-  const gameState = props.gameState;
-  const state = props.state;
-  const guess = props.guess;
-  const onChange = props.onChange;
-  const onClick = props.onClick;
-  const onKeyDown = props.onKeyDown;
+  const { gameState, state, guess, onChange, onClick, onKeyDown } = props;
 
   return (
     <GuessContent>
