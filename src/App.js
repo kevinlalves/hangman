@@ -66,6 +66,7 @@ export default function App() {
     setMistakeNum(0);
     setEnabled(populateEnabled());
     setSecretWordColor("black");
+    setRightGuessesCount(0);
   };
   //////////////////////////////////////////////////////////////////////////////////////////////
 
