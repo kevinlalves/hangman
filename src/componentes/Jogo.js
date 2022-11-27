@@ -20,9 +20,9 @@ export default function Game(props) {
   const chosenWord = props.chosenWord;
 
   const secretWord = () => {
-    if (typeof (props.secretWord) === "object") {
+    try{
       return props.secretWord.join(" ");
-    } else {
+    } catch {
       return props.secretWord;
     }
   };
